@@ -2,7 +2,6 @@ module ScrewServer
   class JslintSuite
 
     DEFAULT_OPTIONS = {
-        # true
       "bitwise" => true,
       "browser" => true,
       "eqeqeq" => true,
@@ -11,13 +10,13 @@ module ScrewServer
       "nomen" => true,
       "regexp" => true,
       "undef" => true,
-      # false
-      "plusplus" => false,
-      "indent" => false,
-      "onevar" => false,
-      "white" => false,
-      "regexp" => false,
-      "nomen" => false
+      "white" => true,
+      "sloppy" => true,
+      "vars" => true,
+      "nomen" => true,
+      "regexp" => true,
+      "plusplus" => true,
+      "indent" => true,
     }
 
     attr_accessor :name, :file_list, :options

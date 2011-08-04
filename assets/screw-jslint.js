@@ -49,8 +49,8 @@ if (Screw.jslint_suites.length > 0) {
             for (var i = 0; i < JSLINT.errors.length; i += 1) {
               var e = JSLINT.errors[i];
               if (e) {
-                var line = parseInt(e.line, 10) + 1;
-                var character = parseInt(e.character, 10) + 1;
+                var line = parseInt(e.line, 10);
+                var character = parseInt(e.character, 10);
                 message += 'Lint at ' + name + ":" + line + ' character ' +
                   character + ': ' + e.reason + "\n";
                 message += (e.evidence || '').
