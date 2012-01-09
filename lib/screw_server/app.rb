@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require "json"
 
 require 'screw_server/jslint_suite'
 require "screw_server/spec_file"
