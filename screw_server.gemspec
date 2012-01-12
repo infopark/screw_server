@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency("json", "=1.4.3")
   s.add_dependency("haml", "= 3.0.13")
-  s.add_dependency("bundler", "= 1.0.7")
+  s.add_dependency("bundler", "= 1.0.21")
 
   # sinatra and dependencies
     s.add_dependency("rack", "= 1.1.0")

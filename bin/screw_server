@@ -9,7 +9,7 @@ if Object.const_defined?("Bundler")
 end
 
 require "rubygems"
-gem "bundler", "= 1.0.7"
+gem "bundler", "= 1.0.21"
 require "bundler"
 ENV["BUNDLE_GEMFILE"] = File.expand_path("../../Gemfile.run", __FILE__)
 Bundler.require
