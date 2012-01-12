@@ -33,7 +33,8 @@ module ScrewServer
 
     def fixture_hash
       used_fixtures.inject({}) do |result, fixture|
-        result.merge(fixture.name => File.read(fixture.filename))
+        fixture_content = File.read(fixture.filename) rescue ""
+        result.merge(fixture.name => fixture_content)
       end
     end
 

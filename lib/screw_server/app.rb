@@ -127,7 +127,7 @@ module ScrewServer
 
       def screw_assets
         %w{
-          vendor/fulljslint.js
+          vendor/jslint/jslint.js
           vendor/screw-unit/lib/jquery.fn.js
           vendor/screw-unit/lib/jquery.print.js
           vendor/screw-unit/lib/screw.builder.js

@@ -3,9 +3,9 @@ require "screw_server/spec_file"
 
 module ScrewServer
   describe SpecFile do
-    describe "delivering a list of all files the spec uses" do
-      let(:example_spec) { SpecFile.new("example") }
+    let(:example_spec) { SpecFile.new("example") }
 
+    describe "delivering a list of all files the spec uses" do
       it "should include all required code files" do
         example_spec.used_files.should include(
           fixture_code_file("example.js"),
@@ -24,11 +24,21 @@ module ScrewServer
 
     describe "getting a list of all required scripts" do
       it "should deliver a list of all scripts required by the spec" do
-        SpecFile.new("example").required_scripts.should include("example.js", "foo.js")
+        example_spec.required_scripts.should include("example.js", "foo.js")
       end
 
       it "should include the scripts required by the spec helper" do
-        SpecFile.new("example").required_scripts.should include("global.js")
+        example_spec.required_scripts.should include("global.js")
+      end
+    end
+
+    describe "getting a fixture hash" do
+      it "should include all used fixtures" do
+        example_spec.fixture_hash.should == {"example"=>""}
+      end
+
+      it "should not fail on missing fixture files" do
+        SpecFile.new("missing_fixture").fixture_hash.should == {"missing"=>""}
       end
     end
   end
