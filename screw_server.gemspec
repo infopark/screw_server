@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{screw_server}
-  s.version = "0.1.6"
+  s.version = "0.1.7"
   s.authors = ["Kristian Hanekamp", "Infopark AG"]
   s.description = %q{Screw Server - easy javascript unit tests}
   s.email = %q{kristian.hanekamp@infopark.de}
@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
     ["bin/screw_server", "Gemfile.run", "Gemfile.run.lock", "screw_server.gemspec"]
   s.summary = %q{Screw Server}
 
-  s.add_dependency("json", "=1.4.3")
+  s.add_dependency("json", "=1.6.5")
   s.add_dependency("haml", "= 3.0.13")
   s.add_dependency("bundler", "= 1.0.21")
 
