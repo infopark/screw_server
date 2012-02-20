@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
     ["bin/screw_server", "Gemfile.run", "Gemfile.run.lock", "screw_server.gemspec"]
   s.summary = %q{Screw Server}
 
-  s.add_dependency("json", "=1.4.3")
+  s.add_dependency("json", "=1.6.5")
   s.add_dependency("haml", "= 3.0.13")
   s.add_dependency("bundler", "= 1.0.21")
 
