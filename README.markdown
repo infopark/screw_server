@@ -23,6 +23,8 @@ Screw Server expects to be executed in your application's root directory, where 
           * your javascript test suites having a `"_spec.js"` - suffix (i.e. `my_spec.js`, `another_spec.js`)
           * `fixtures` (optional)
             * your HTML fixture files having a `".html"` - suffix (i.e. `my_fixture.html`)
+          * support (optional)
+            * javascript files that contain helper functions for your specs
 
 Your application must contain jQuery.
 To tell Screw Server where to find jQuery, you must require it in your `spec_helper.js`.
@@ -50,7 +52,7 @@ If you require a different port or wish to use a different directory structure f
 
 Click on `MONITOR` in Screw Server's start page. Screw Server will then monitor the modification times in your applications code and tests. Whenever you touch (= save) a test suite, Screw Server will automatically run that suite. When you touch a code file that is tested by that suite, the suite will automatically be re-run.
 
-## Wrinting Tests
+## Writing Tests
 
 To get started, take a look at the example "app" located in Screw Server's source under `/example`.
 
@@ -119,3 +121,8 @@ Do not manipulate any DOM elements outside of your fixtures! This could interfer
 Screw Server is able to test your coding style using JSLint.
 Unfortunately there is no documentation yet.
 Feel free to ask the maintainer ^__^
+
+## Author
+
+Kristian Hanekamp and others for Infopark AG
+

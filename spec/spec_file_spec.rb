@@ -41,5 +41,12 @@ module ScrewServer
         SpecFile.new("missing_fixture").fixture_hash.should == {"missing"=>""}
       end
     end
+
+    describe "spec helper files" do
+      it "include the spec_helper and all files under spec/support" do
+        SpecFile.spec_helper_files.first.should == fixture_spec_file("spec_helper.js")
+        SpecFile.spec_helper_files.should include(fixture_spec_file("support/example_support.js"))
+      end
+    end
   end
 end

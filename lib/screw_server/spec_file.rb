@@ -39,7 +39,8 @@ module ScrewServer
     end
 
     def required_scripts
-      required_files_in(SpecFile.spec_helper_file) + required_files_in(filename)
+      SpecFile.spec_helper_files.map { |file| required_files_in(file) }.flatten +
+        required_files_in(filename)
     end
 
     def last_dependency_change
@@ -53,13 +54,15 @@ module ScrewServer
     end
 
     def used_files
-      [filename, SpecFile.spec_helper_file] +
+      [filename] +
+        SpecFile.spec_helper_files +
         used_fixtures.map(&:filename) +
         required_scripts.map {|script| File.join(Base.code_base_dir, script)}
     end
 
-    def self.spec_helper_file
-      File.join(Base.spec_base_dir, "spec_helper.js")
+    def self.spec_helper_files
+      Dir.glob(Base.spec_base_dir + "spec_helper.js") +
+        Dir.glob(Base.spec_base_dir + "support/**/*.js")
     end
 
     protected

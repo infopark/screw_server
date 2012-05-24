@@ -93,6 +93,12 @@ module ScrewServer
         last_response.body.should include("Cannot find")
         last_response.body.should include("adjust the url below")
       end
+
+      it "should include the spec helpers" do
+        get "/run"
+        last_response.body.should include("spec_helper")
+        last_response.body.should include("example_support")
+      end
     end
   end
 end

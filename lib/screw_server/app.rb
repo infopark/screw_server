@@ -142,6 +142,10 @@ module ScrewServer
         }
       end
 
+      def spec_helpers
+        SpecFile.spec_helper_files
+      end
+
       def sample_spec_file
         "\n"+File.read(File.join(VIEW_PATH, "sample_spec.js"))
       end
@@ -159,8 +163,8 @@ module ScrewServer
     private
 
     def file_from_base_dir(base_dir, file)
-      File.expand_path(File.join(base_dir, file)).tap do |result|
-        unless result.start_with?(base_dir)
+      File.expand_path(File.join(base_dir.to_s, file)).tap do |result|
+        unless result.start_with?(base_dir.to_s)
           raise Sinatra::NotFound, "Forbidden Access out of base directory"
         end
       end
@@ -168,17 +172,17 @@ module ScrewServer
 
     def url_for_source_file(filename)
       file = File.expand_path(filename)
-      if file.start_with?(Base.code_base_dir)
-        file[Base.code_base_dir.length..-1]
-      elsif file.start_with?(Base.spec_base_dir)
-        url_for_spec(file[(Base.spec_base_dir.length + 1)..-1])
+      if file.start_with?(Base.code_base_dir.to_s)
+        file[Base.code_base_dir.to_s.length..-1]
+      elsif file.start_with?(Base.spec_base_dir.to_s)
+        url_for_spec(file[(Base.spec_base_dir.to_s.length + 1)..-1])
       else
-        raise "file #{file} cannot be checked by jslint since it it not inside the spec or code path"
+        raise "file #{file} cannot be checked by jslint since it it not inside the spec or code path: #{Base.code_base_dir} or #{Base.spec_base_dir}"
       end
     end
 
     def run_specs(specs)
-      if File.exists?(SpecFile.spec_helper_file)
+      if SpecFile.spec_helper_files.length > 0
         @specs = specs
         haml :run_spec
       else

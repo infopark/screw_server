@@ -9,7 +9,8 @@
     - screw_assets.each do |asset|
       %script{:type => "text/javascript", :src => url_for_screw_asset(asset)}
 
-    %script{:type => "text/javascript", :src => url_for_spec("spec_helper.js")}
+    - spec_helpers.each do |asset|
+      %script{:type => "text/javascript", :src => url_for_source_file(asset)}
 
     %script{:type => "text/javascript"}
       = "fixture_container = #{fixture_html.to_json}"
