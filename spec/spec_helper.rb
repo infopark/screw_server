@@ -1,5 +1,5 @@
 require "rubygems"
-gem "bundler", "= 1.0.21"
+gem "bundler", SCREW_SERVER_BUNDLER_VERSION
 require "bundler"
 ENV["BUNDLE_GEMFILE"] = File.expand_path("../../Gemfile", __FILE__)
 Bundler.require

@@ -1,3 +1,5 @@
+require File.expand_path("../bundler_version", __FILE__)
+
 Gem::Specification.new do |s|
   s.name = %q{screw_server}
   s.version = "0.1.7"
@@ -6,12 +8,18 @@ Gem::Specification.new do |s|
   s.email = %q{kristian.hanekamp@infopark.de}
   s.files =
     Dir.glob("{lib,assets,views}/**/*") +
-    ["bin/screw_server", "Gemfile.run", "Gemfile.run.lock", "screw_server.gemspec"]
+    [
+      "bin/screw_server",
+      "Gemfile.run",
+      "Gemfile.run.lock",
+      "screw_server.gemspec",
+      "bundler_version.rb"
+    ]
   s.summary = %q{Screw Server}
 
   s.add_dependency("json", "=1.6.5")
   s.add_dependency("haml", "= 3.0.13")
-  s.add_dependency("bundler", "= 1.0.21")
+  s.add_dependency("bundler", SCREW_SERVER_BUNDLER_VERSION)
 
   # sinatra and dependencies
     s.add_dependency("rack", "= 1.1.0")

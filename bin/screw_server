@@ -8,8 +8,10 @@ if Object.const_defined?("Bundler")
   Kernel.exec(__FILE__)
 end
 
+require File.expand_path("../../bundler_version", __FILE__)
+
 require "rubygems"
-gem "bundler", "= 1.0.21"
+gem "bundler", SCREW_SERVER_BUNDLER_VERSION
 require "bundler"
 ENV["BUNDLE_GEMFILE"] = File.expand_path("../../Gemfile.run", __FILE__)
 Bundler.require

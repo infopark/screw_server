@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    screw_server (0.1.6)
-      bundler (= 1.0.21)
+    screw_server (0.1.7)
+      bundler (= 1.1.3)
       daemons (= 1.0.10)
       eventmachine (= 0.12.6)
       haml (= 3.0.13)
