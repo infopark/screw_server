@@ -4,7 +4,7 @@
 
 Use Screw Server to organize and execute your javascript unit tests.
 
-It is based on [Screw.Unit](https://github.com/infopark/screw-unit) and [Smoke](https://github.com/infopark/smoke) and targetted primarily at testing browser-based javascript code. It aims to provide an easy-to-use testing environment for both small and large javascript projects.
+It is based on [Screw.Unit](https://github.com/infopark/screw-unit) and [Smoke](https://github.com/infopark/smoke) and targeted primarily at testing browser-based javascript code. It aims to provide an easy-to-use testing environment for both small and large javascript projects.
 
 ## Installation
 
@@ -58,7 +58,7 @@ To get started, take a look at the example "app" located in Screw Server's sourc
 
 Screw Server uses [Screw Unit](https://github.com/infopark/screw-unit) as a test suite framework and [Smoke](https://github.com/infopark/smoke) as a mocking and stubbing framework. Please refer to their documentation for test syntax.
 
-Notice that you do not need the static HTML suite mentiond in Screw Unit's documentation.
+Notice that you do not need the static HTML suite mentioned in Screw Unit's documentation.
 Screw Server generates that for you.
 
 ## Requiring Files
