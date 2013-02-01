@@ -48,6 +48,12 @@ If you require a different port or wish to use a different directory structure f
 
     screw_server --help
 
+Alternatively you can create a `.screw_server.yml` file with the following options:
+
+    port
+    spec_base_dir
+    code_base_dir
+
 ### Monitoring (Autotest)
 
 Click on `MONITOR` in Screw Server's start page. Screw Server will then monitor the modification times in your applications code and tests. Whenever you touch (= save) a test suite, Screw Server will automatically run that suite. When you touch a code file that is tested by that suite, the suite will automatically be re-run.
