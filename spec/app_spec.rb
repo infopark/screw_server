@@ -58,7 +58,7 @@ module ScrewServer
         get "/"
         last_response.should be_ok
         last_response.body.should include("does not contain any specs")
-        last_response.body.should include(ScrewServer::Base.spec_base_dir)
+        last_response.body.should include(ScrewServer::Base.spec_base_dir.to_s)
         last_response.body.should include("should be simple to write")
       end
     end
@@ -89,7 +89,7 @@ module ScrewServer
         use_spec_directory('spec_without_spec_helper')
         get "/run"
         last_response.should be_ok
-        last_response.body.should include(ScrewServer::Base.spec_base_dir)
+        last_response.body.should include(ScrewServer::Base.spec_base_dir.to_s)
         last_response.body.should include("Cannot find")
         last_response.body.should include("adjust the url below")
       end
