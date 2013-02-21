@@ -64,7 +64,7 @@ module ScrewServer
     end
 
     describe "running all specs" do
-      it "should ignore a missing jslint.rb" do
+      it "should ignore a missing jslint.rb and jshint.rb" do
         use_spec_directory('spec_without_jslint')
         get "/run"
         last_response.should be_ok
@@ -81,6 +81,21 @@ module ScrewServer
           }, {
             "file_list" => ["/___screw_specs___/example_spec.js"],
             "options" => JslintSuite::DEFAULT_OPTIONS
+          }
+        ]
+      end
+
+      it "should process a given jshint.rb and include it's data as javascript" do
+        get "/run"
+        last_response.should be_ok
+        last_response.body =~ /Screw\.jshint_suites = (.+);/
+        JSON.parse($1).should == [
+          {
+            "file_list" => ["/example.js"],
+            "options" => JshintSuite::DEFAULT_OPTIONS.merge("predef" => ["window"])
+          }, {
+            "file_list" => ["/___screw_specs___/example_spec.js"],
+            "options" => JshintSuite::DEFAULT_OPTIONS
           }
         ]
       end

@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require "json"
 
+require 'screw_server/jshint_suite'
 require 'screw_server/jslint_suite'
 require "screw_server/spec_file"
 
@@ -88,6 +89,20 @@ module ScrewServer
         end
       end
 
+      def jshint_suites
+        jshint_file = File.join(Base.spec_base_dir, "jshint.rb")
+        if !File.exists?(jshint_file)
+          []
+        else
+          JshintSuite.suites_from(jshint_file).map do |suite|
+            {
+              :file_list => suite.file_list.map { |file| url_for_source_file(file) },
+              :options => suite.options_with_defaults
+            }
+          end
+        end
+      end
+
       def url_for_screw_asset(file)
         "/#{ASSET_BASE_URL}/#{file}"
       end
@@ -128,6 +143,7 @@ module ScrewServer
       def screw_assets
         %w{
           vendor/jslint/jslint.js
+          vendor/jshint.js
           vendor/screw-unit/lib/jquery.fn.js
           vendor/screw-unit/lib/jquery.print.js
           vendor/screw-unit/lib/screw.builder.js
