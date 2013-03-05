@@ -6,14 +6,10 @@ module ScrewServer
       "bitwise" => true,
       "browser" => true,
       "jquery" => true,
-      "devel" => true,
       "eqeqeq" => true,
       "immed" => true,
       "newcap" => true,
-      "nomen" => true,
-      "regexp" => true,
       "undef" => true,
-      "plusplus" => true,
     }
 
     attr_accessor :name, :file_list, :options
