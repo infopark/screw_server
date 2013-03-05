@@ -4,6 +4,3 @@
 [submodule "assets/vendor/screw-unit"]
 	path = assets/vendor/screw-unit
 	url = git://github.com/infopark/screw-unit.git
-[submodule "assets/vendor/jslint"]
-	path = assets/vendor/jslint
-	url = https://github.com/douglascrockford/JSLint.git
