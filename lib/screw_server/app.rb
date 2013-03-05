@@ -2,7 +2,6 @@ require 'sinatra/base'
 require "json"
 
 require 'screw_server/jshint_suite'
-require 'screw_server/jslint_suite'
 require "screw_server/spec_file"
 
 module ScrewServer
@@ -13,6 +12,13 @@ module ScrewServer
     VIEW_PATH = File.join(File.dirname(__FILE__), "..", "..", "views")
 
     set :views, VIEW_PATH
+
+    before do
+      jslint_file = File.join(Base.spec_base_dir, "jslint.rb")
+      if File.exists?(jslint_file)
+        raise "jslint.rb is no longer supported. Please use jshint.rb."
+      end
+    end
 
     get "/run/:name" do
       run_specs([SpecFile.new(params[:name])])
@@ -75,20 +81,6 @@ module ScrewServer
         "#{url}?#{rand}"
       end
 
-      def jslint_suites
-        jslint_file = File.join(Base.spec_base_dir, "jslint.rb")
-        if !File.exists?(jslint_file)
-          []
-        else
-          JslintSuite.suites_from(jslint_file).map do |suite|
-            {
-              :file_list => suite.file_list.map { |file| url_for_source_file(file) },
-              :options => suite.options_with_defaults
-            }
-          end
-        end
-      end
-
       def jshint_suites
         jshint_file = File.join(Base.spec_base_dir, "jshint.rb")
         if !File.exists?(jshint_file)
@@ -142,7 +134,6 @@ module ScrewServer
 
       def screw_assets
         %w{
-          vendor/jslint/jslint.js
           vendor/jshint.js
           vendor/screw-unit/lib/jquery.fn.js
           vendor/screw-unit/lib/jquery.print.js
@@ -193,7 +184,7 @@ module ScrewServer
       elsif file.start_with?(Base.spec_base_dir.to_s)
         url_for_spec(file[(Base.spec_base_dir.to_s.length + 1)..-1])
       else
-        raise "file #{file} cannot be checked by jslint since it it not inside the spec or code path: #{Base.code_base_dir} or #{Base.spec_base_dir}"
+        raise "file #{file} cannot be checked by jshint since it it not inside the spec or code path: #{Base.code_base_dir} or #{Base.spec_base_dir}"
       end
     end
 

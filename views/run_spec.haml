@@ -14,7 +14,6 @@
 
     %script{:type => "text/javascript"}
       = "fixture_container = #{fixture_html.to_json}"
-      = "Screw.jslint_suites = #{jslint_suites.to_json};"
       = "Screw.jshint_suites = #{jshint_suites.to_json};"
   %body
     %h3#screw_server_loading{:class => "status"}
@@ -22,8 +21,6 @@
     #fixture_container
     - @specs.each do |spec|
       %script{:type => "text/javascript", :src => cache_busting_url(url_for_spec(spec.full_name))}
-
-    %script{:type => "text/javascript", :src => url_for_screw_asset("screw-jslint.js")}
 
     %script{:type => "text/javascript", :src => url_for_screw_asset("screw-jshint.js")}
 
