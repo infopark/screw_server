@@ -1,22 +1,15 @@
 module ScrewServer
-  class JslintSuite
+  class JshintSuite
 
+    # All options see http://www.jshint.com/docs/
     DEFAULT_OPTIONS = {
       "bitwise" => true,
       "browser" => true,
+      "jquery" => true,
       "eqeqeq" => true,
       "immed" => true,
       "newcap" => true,
-      "nomen" => true,
-      "regexp" => true,
       "undef" => true,
-      "white" => true,
-      "sloppy" => true,
-      "vars" => true,
-      "nomen" => true,
-      "regexp" => true,
-      "plusplus" => true,
-      "indent" => true,
     }
 
     attr_accessor :name, :file_list, :options
@@ -41,8 +34,8 @@ module ScrewServer
 
     private
 
-    def self.jslint(name)
-      suite = JslintSuite.new(name)
+    def self.jshint(name)
+      suite = JshintSuite.new(name)
       yield suite
       @suites << suite
     end
