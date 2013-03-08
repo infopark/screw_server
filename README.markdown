@@ -122,9 +122,9 @@ The HTML snippet will be restored to it's initial state before each `it` block, 
 
 Do not manipulate any DOM elements outside of your fixtures! This could interfere with Screw Server's test runner. If a test does not declare `use_fixture`, it should not access the DOM at all and neither should the code-under-test.
 
-## JSLint
+## JSHint
 
-Screw Server is able to test your coding style using JSLint.
+Screw Server is able to test your coding style using JSHint.
 Unfortunately there is no documentation yet.
 Feel free to ask the maintainer ^__^
 
