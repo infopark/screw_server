@@ -1,10 +1,10 @@
 (function() {
 
-Screw.jslint_scripts = {};
+Screw.jshint_scripts = {};
 
 Screw.matching_suite = function(filename) {
   var suite;
-  $.each(Screw.jslint_suites, function() {
+  $.each(Screw.jshint_suites, function() {
     var found;
     $.each(this.file_list, function() {
       if (this == filename) { found = true; }
@@ -21,33 +21,33 @@ $("script").map(function() {
 
     if (!Screw.matching_suite(normalized_source_url)) { return; }
 
-    Screw.jslint_scripts[normalized_source_url] = null;
+    Screw.jshint_scripts[normalized_source_url] = null;
 
     Screw.ajax({
       url: source_url,
       dataType: "text",
       contentType: "text/plain",
       success: function(code) {
-        Screw.jslint_scripts[normalized_source_url] = code;
+        Screw.jshint_scripts[normalized_source_url] = code;
       }
     });
   }
 });
 
-if (Screw.jslint_suites.length > 0) {
+if (Screw.jshint_suites.length > 0) {
   Screw.Unit(function(){
-    describe("JSLINT check", function() {
+    describe("JSHINT check", function() {
       it("should succeed", function() {
         var message = "";
         var ajax = Screw.ajax;
-        $.each(Screw.jslint_scripts, function(name, source_code) {
+        $.each(Screw.jshint_scripts, function(name, source_code) {
           if (source_code === null) { throw "failed to load "+name; }
 
           var suite = Screw.matching_suite(name);
 
-          if (!JSLINT(source_code, suite.options)) {
-            for (var i = 0; i < JSLINT.errors.length; i += 1) {
-              var e = JSLINT.errors[i];
+          if (!JSHINT(source_code, suite.options)) {
+            for (var i = 0; i < JSHINT.errors.length; i += 1) {
+              var e = JSHINT.errors[i];
               if (e) {
                 var line = parseInt(e.line, 10);
                 var character = parseInt(e.character, 10);
