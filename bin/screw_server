@@ -30,6 +30,8 @@ begin
 rescue Errno::ENOENT
 end
 
+require 'optparse'
+
 OptionParser.new do |opt|
   opt.on('--port -p ', Integer, 'port to start screw_server on (default is 3210)') do |port|
     options[:port] = port
