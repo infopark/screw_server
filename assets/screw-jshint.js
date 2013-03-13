@@ -36,7 +36,7 @@ $("script").map(function() {
 
 if (Screw.jshint_suites.length > 0) {
   Screw.Unit(function(){
-    describe("JSHINT check", function() {
+    describe("JSHint check", function() {
       it("should succeed", function() {
         var message = "";
         var ajax = Screw.ajax;
@@ -51,7 +51,7 @@ if (Screw.jshint_suites.length > 0) {
               if (e) {
                 var line = parseInt(e.line, 10);
                 var character = parseInt(e.character, 10);
-                message += 'Lint at ' + name + ":" + line + ' character ' +
+                message += 'JSHint at ' + name + ":" + line + ' character ' +
                   character + ': ' + e.reason + "\n";
                 message += (e.evidence || '').
                   replace(/^\s*(\S*(\s+\S+)*)\s*$/, "$1") + "\n";
