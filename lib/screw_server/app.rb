@@ -179,10 +179,10 @@ module ScrewServer
 
     def url_for_source_file(filename)
       file = File.expand_path(filename)
-      if file.start_with?(Base.code_base_dir.to_s)
-        file[Base.code_base_dir.to_s.length..-1]
-      elsif file.start_with?(Base.spec_base_dir.to_s)
+      if file.start_with?(Base.spec_base_dir.to_s)
         url_for_spec(file[(Base.spec_base_dir.to_s.length + 1)..-1])
+      elsif file.start_with?(Base.code_base_dir.to_s)
+        file[Base.code_base_dir.to_s.length..-1]
       else
         raise "file #{file} cannot be checked by jshint since it it not inside the spec or code path: #{Base.code_base_dir} or #{Base.spec_base_dir}"
       end
