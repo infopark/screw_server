@@ -10,7 +10,7 @@
       %script{:type => "text/javascript", :src => url_for_screw_asset(asset)}
 
     - spec_helpers.each do |asset|
-      %script{:type => "text/javascript", :src => url_for_source_file(asset)}
+      %script{:type => "text/javascript", :src => cache_busting_url(url_for_source_file(asset))}
 
     %script{:type => "text/javascript"}
       = "fixture_container = #{fixture_html.to_json}"
