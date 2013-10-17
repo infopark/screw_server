@@ -2,7 +2,7 @@ require File.expand_path("../bundler_version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name = %q{screw_server}
-  s.version = '0.1.12'
+  s.version = '0.1.13'
   s.authors = ["Kristian Hanekamp", "Infopark AG"]
   s.description = %q{Screw Server - easy javascript unit tests}
   s.email = %q{kristian.hanekamp@infopark.de}
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Screw Server}
 
   s.add_dependency("json", "=1.6.5")
-  s.add_dependency("haml", "= 3.0.13")
+  s.add_dependency("haml", "~> 3.0")
   s.add_dependency("bundler", SCREW_SERVER_BUNDLER_VERSION)
 
   # sinatra and dependencies
