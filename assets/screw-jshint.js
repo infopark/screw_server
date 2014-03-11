@@ -25,6 +25,7 @@ $("script").map(function() {
 
     Screw.ajax({
       url: source_url,
+      async: false, // load sync, to avoid "to slow" ajax request, when running jshint.
       dataType: "text",
       contentType: "text/plain",
       success: function(code) {
