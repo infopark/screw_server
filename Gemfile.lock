@@ -5,7 +5,7 @@ PATH
       bundler (~> 1.2)
       daemons (= 1.0.10)
       eventmachine (= 0.12.6)
-      haml (~> 3.0)
+      haml (= 3.1.8)
       json (= 1.6.5)
       rack (= 1.1.0)
       sinatra (= 1.0)

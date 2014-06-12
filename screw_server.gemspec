@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Screw Server}
 
   s.add_dependency("json", "=1.6.5")
-  s.add_dependency("haml", "~> 3.0")
+  s.add_dependency("haml", "=3.1.8")
   s.add_dependency("bundler", SCREW_SERVER_BUNDLER_VERSION)
 
   # sinatra and dependencies
