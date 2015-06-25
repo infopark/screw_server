@@ -10,6 +10,7 @@ module ScrewServer
       "immed" => true,
       "newcap" => true,
       "undef" => true,
+      "es5" => true,
     }
 
     attr_accessor :name, :file_list, :options
